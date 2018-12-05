@@ -3,10 +3,26 @@
     <div class="row">
       <div class="col s12 m10">
         <div class="card-panel">
+          <span>投稿者</span><%= blog.user.nickname %><br>
           <span><%= blog.title %>
           </span><br>
           <span><%= blog.text %>
           </span></br>
+          <% if user_signed_in? && current_user.id == blog.user_id %>
+            <ul class="waves-effect waves-light btn-small">
+              <li>
+                <%= link_to '詳細', "/blogs/#{blog.id}", method: :get %>
+              </li>
+              <% if user_signed_in? && current_user.id == blog.user_id %>
+                <li>
+                  <%= link_to '削除', "/blogs/#{blog.id}", method: :delete %>
+                </li>
+                <li>
+                  <%= link_to '編集', "/blogs/#{blog.id}/edit", method: :get %>
+                </li>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
