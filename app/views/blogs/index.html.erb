@@ -1,0 +1,14 @@
+<div class="contents row" >
+  <% @blogs.each do |blog| %>
+    <div class="row">
+      <div class="col s12 m10">
+        <div class="card-panel">
+          <span><%= blog.title %>
+          </span><br>
+          <span><%= blog.text %>
+          </span></br>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
