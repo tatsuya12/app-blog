@@ -3,29 +3,23 @@
     <div class="row">
       <div class="col s12 m10">
         <div class="card-panel">
-          <span>投稿者</span><%= blog.user.nickname %><br>
-          <span><%= blog.title %>
-          </span><br>
-          <span><%= blog.text %>
-          </span></br>
-          <% if user_signed_in? && current_user.id == blog.user_id %>
-            <ul class="waves-effect waves-light btn-small">
-              <li>
-                <%= link_to '詳細', "/blogs/#{blog.id}", method: :get %>
-              </li>
-              <% if user_signed_in? && current_user.id == blog.user_id %>
-                <li>
-                  <%= link_to '削除', "/blogs/#{blog.id}", method: :delete %>
-                </li>
-                <li>
-                  <%= link_to '編集', "/blogs/#{blog.id}/edit", method: :get %>
-                </li>
-              <% end %>
-            </div>
-          <% end %>
+          <span><%= blog.user.nickname %></span><br>
+          <span><%= blog.title %></span><br>
+          <span><%= blog.text %></span></br>
+          <div class="waves-effect waves-light btn-small">
+            <%= link_to "詳細", "/blogs/#{blog.id}", class: "btn", method: :get %>
+            <% if user_signed_in? && current_user.id == blog.user_id %>
+              <%= link_to "削除", "/blogs/#{blog.id}", class: "btn", method: :delete %>
+              <%= link_to "編集", "/blogs/#{blog.id}/edit", class: "btn", method: :get%>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   <% end %>
+  <% if user_signed_in? %>
+  <a href="/blogs/new" class="btn-floating btn-large waves-effect waves-light teal accent-4"><i class="material-icons">add</i></a>
+  <% end %>
+
   <%= paginate(@blogs) %>
 </div>
