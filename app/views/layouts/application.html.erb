@@ -24,7 +24,9 @@
     <div class="navbar-fixed">
       <nav class=" teal accent-4">
         <div class="nav-wrapper">
-          <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>blog</a>
+          <div class="center-align">
+            <a href="/" class="brand-logo"><i class="material-icons ">cloud</i>blog</a>
+          </div>
           <ul class="right hide-on-med-and-down">
             <% if user_signed_in? %>
               <li><%= link_to "Signout", destroy_user_session_path, method: :delete %></li>
@@ -38,6 +40,7 @@
     </div>
 
     <%= yield %>
+
 
   </body>
 </html>
