@@ -1,10 +1,11 @@
 <div class="contents row">
   <%= form_tag('/blogs', method: :post) do %>
-    <h3>
-      投稿する
-    </h3>
-    <input placeholder="title" type="text" name="title">
-    <textarea cols="30" name="text" placeholder="text" rows="10"></textarea>
-    <input type="submit" value="SENT">
+    <h5 class="center-align ">Post</h5>
+    <input placeholder="title" type="text" name="title" autofocus="true">
+    <textarea cols="30" name="text" placeholder="text" rows="10" class="materialize-textarea" id="textarea1"></textarea>
+    <label for="textarea1"></label>
+    <input type="submit" value="SENT" class="waves-effect waves-light btn">
   <% end %>
 </div>
+
+
